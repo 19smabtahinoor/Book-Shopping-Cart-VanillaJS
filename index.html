@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .number_input::-webkit-outer-spin-button,
+        .number_input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        .number_input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-yellow-400 py-2">
+        <nav class="flex items-center max-w-screen-lg mx-auto px-12">
+            <div class="flex items-center space-x-3">
+                <img class="w-16 h-16" src="images/favicon.png" alt="logo">
+                <h1 class="text-2xl text-gray-600 font-semibold select-none">Book Store</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-screen-lg mx-auto px-12">
+        <section class="my-24">
+            <div
+                class="bg-white p-6 box-border border border-gray-300 flex items-center text-gray-600 text-xl rounded-lg">
+                <h2 class=" flex-grow">My Cart ( <span id="book_quantity">2</span> items)</h2>
+                <h2 class="justify-end">Total: <span id="book_total">000</span> Tk.</h2>
+            </div>
+
+            <!-- books cart  -->
+            <div class="bg-white p-6 box-border shadow-xl rounded-lg mt-9">
+
+                <div class="flex flex-col space-y-6">
+
+                    <!-- book1  -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-10 border-b border-gray-300 pb-4">
+                        <div class="col-span-2 flex space-x-4">
+                            <!-- book image  -->
+                            <img class="h-28" src="images/book1.jpg" alt="book1">
+                            <!-- book description  -->
+                            <div class="flex flex-col">
+                                <h1 class="text-xl text-gray-600">হাবলুদের জন্য প্রোগ্রামিং</h1>
+                                <p class="text-gray-500 text-base">ঝংকার মাহবুব</p>
+                            </div>
+                        </div>
+
+                        <!-- book quantity  -->
+                        <div class="cols-span-1">
+                            <div class="place-items-center">
+                                <div class="flex items-center h-24">
+                                    <button id="book1_minus"
+                                        class="w-16 bg-gray-100 text-2xl text-gray-800 font-bold  p-1 rounded-l-lg hover:bg-yellow-400 active:scale-120 transition duration-300 ease-in"
+                                        onclick="handleClick('book1','minus')">-</button>
+                                    <input id="book1_quantity"
+                                        class="number_input w-16 p-1 text-center focus:outline-none text-gray-600 text-2xl"
+                                        type="number" value="0">
+                                    <button id="book1_plus"
+                                        class="w-16 bg-gray-100 text-2xl text-gray-800 font-bold p-1 rounded-r-lg hover:bg-yellow-400 active:scale-90 transition duration-300 ease-in"
+                                        onclick="handleClick('book1','plus')">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- book price  -->
+                        <div class="col-span-1">
+                            <div class="place-items-center ">
+                                <div class="flex items-center justify-end h-24">
+                                    <h2 class="text-2xl text-gray-700">Tk. <span id="book1_price">0</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- book2  -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-10 border-b border-gray-300 pb-4">
+                        <div class="col-span-2 flex space-x-4">
+                            <!-- book image  -->
+                            <img class="h-28" src="images/book6.jpg" alt="book1">
+                            <!-- book description  -->
+                            <div class="flex flex-col">
+                                <h1 class="text-xl text-gray-600">ওয়েব ডিজাইন শিখে ডলার আয়</h1>
+                                <p class="text-gray-500 text-base">ফ্রিল্যান্সার নাসিম</p>
+                            </div>
+                        </div>
+
+                        <!-- book quantity  -->
+                        <div class="cols-span-1">
+                            <div class="place-items-center">
+                                <div class="flex items-center h-24">
+                                    <button id="book2_minus"
+                                        class="w-16 bg-gray-100 text-2xl text-gray-800 font-bold  p-1 rounded-l-lg hover:bg-yellow-400 active:scale-120 transition duration-300 ease-in"
+                                        onclick="handleClick('book2','minus')">-</button>
+                                    <input id="book2_quantity"
+                                        class="number_input w-16 p-1 text-center focus:outline-none text-gray-600 text-2xl"
+                                        type="number" value="0">
+                                    <button
+                                        class="w-16 bg-gray-100 text-2xl text-gray-800 font-bold p-1 rounded-r-lg hover:bg-yellow-400 active:scale-90 transition duration-300 ease-in"
+                                        onclick="handleClick('book2','plus')">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- book price  -->
+                        <div class="col-span-1">
+                            <div class="place-items-center ">
+                                <div class="flex items-center justify-end h-24">
+                                    <h2 class="text-2xl text-gray-700">Tk. <span id="book2_price">0</span></h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
